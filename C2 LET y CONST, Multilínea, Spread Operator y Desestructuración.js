@@ -53,9 +53,17 @@ console.log(globalet); //no es accesible porque este en el Scope
 {var globalvar = "global var";}
 
 {let globalet = "global let";
-console.log(globalet); //dentro del scope
+console.log(globalet); //dentro del scope, es accesible
+//por eso es conveniente establecer LET
 }
 console.log(globalvar); //es accesible 
+
+/* ------------------ CONST ------------------ */
+
+const A ='B';
+A = 'a'; // Error, ya que una constante no se puede modificar, su valor es constante a diferencia de Var. 
+
+
 
 
 
