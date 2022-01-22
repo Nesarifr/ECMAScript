@@ -23,4 +23,20 @@ const hello = () =>{
 } */
 
 import {hello} from './module.js
-hello();
+hello(); //en nodejs no funciona en terminal
+
+// <------------ GENERATOR --------->
+// es una funcion especial la cual retorna  una serie de valores segun el algoritmo definidos
+
+function* helloWorld(){  //sintaxis * //
+    if(true){ //segun el algortimo es como va a retornar los valores
+        yield 'hello, '; //yield guarda este estado de forma interna
+    } if (true){ //puedo generar otro if
+        yield 'world' ;
+    }
+};
+
+const generatorHello= helloWorld(); // se ejecuta con una constante
+console.log(generatorHello.next().value); // el valor next me permite ejecutar la primer logica (guarda q se ejecuto)
+console.log(generatorHello.next().value); // el valor next me permite ejecutar la segunda logica (guarda q se ejecuto)
+console.log(generatorHello.next().value); // y asi por cada step
