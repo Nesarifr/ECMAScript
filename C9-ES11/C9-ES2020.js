@@ -58,7 +58,19 @@ Promise.allSettled([promise1,promise2,promise3]) //espera a q todas esten resuel
 // ---------------------- Global this -----------
 console.log(globalThis); //tenemos acceso desde Nodejs, para acceder al recurso
 
-//---------------------- Operador null
+//---------------------- Operador null "??"
 
-const fooo='asd' ?? 'default string';
-console.log(fooo);
+const fooo= null ?? 'default string'; // ?? crear el operador logico, "si el elemento es nulo", dara 'default string'
+console.log(fooo); // default string
+
+//------------------- opcional chaining ch
+
+const user ={}; //objeto vacio
+console.log(user?.profile?.email); // ? es para leer hasta este nivel para que no ejecute error
+//si no esta el objeto o elemento dara como resultado "undefined" para no romper la aplicacion con error
+
+if(user?.profile?.email){ //si tengo acceso a profile, o user, dara true
+    console.log('email')
+} else { //como no  tengo acceso o no existe, se dara fail
+    console.log('fail')
+}
