@@ -15,15 +15,28 @@ const calc=new Calculator(); //genero una constante, sera igual a la clase q aca
 //las clases se inicializan con new
 console.log(calc.sum(2,2)); //uso calc con el metodo y poniendo sus valores
 
-//<---------------------IMPORTAR ------------------->
+//<---------------------IMPORTAR MODULOS ------------------->
 
 /* genero un arhivo "module.js"
-const hello = () =>{
+const hello = () => {
     return 'hello!'
-} */
+}
+export default hello;
+*/
 
-import {hello} from './module.js'
-hello(); //en nodejs no funciona en terminal
+import { hello } from './module';
+hello();
+
+/* ------------node ahora usa la siguiente notacion--------- */
+/* en la EXPORTACION
+const hello = () => {
+    return 'hello!'
+}
+module.exports=hello; <----- PARA EXPORTAR
+*/
+
+const hello=require("./module.js");
+console.log(hello(true)); //asi funciona en node IMPORTACION
 
 // <--------------------- GENERATOR -------------------->
 // es una funcion especial la cual retorna  una serie de valores segun el algoritmo definidos
