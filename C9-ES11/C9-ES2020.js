@@ -20,7 +20,7 @@
     console.log("hola mundo");
 }*/ 
 
-// DINAMYC IMPORT , se realiza importaciones de forma dinamica
+// DINAMYC IMPORT , se realiza importaciones de forma dinamica-----------------
 
 const button = document.getElementById("btn"); // constante se llama al Id que estableci "btn"
 
@@ -30,3 +30,35 @@ button.addEventListener("click", async function () { //metodo para escuchar lo q
     const module= await import("./file.js"); //una constante module que espere para llamar a "file.js"
     module.hello(); //utilizo la funcion dentro de "file.js"
 });
+
+//---------------BigNumber---------------
+const aBigNumber=9007199254740991n //numero mas grande que se podia usar en Javascript
+const anotherBigNumber= BigInt(9007199254740991) //se puede usar este numero sin la "n"
+
+console.log(aBigNumber);
+console.log(anotherBigNumber);
+
+//----------------Promise.allSettled-------------
+
+const promise1 = new Promise ((resolve, reject)=>reject("reject")); //super importante la mayuscula Promise
+const promise2 = new Promise ((resolve, reject)=>resolve("resolve"));
+const promise3 = new Promise ((resolve, reject)=>resolve("resolve1"));
+
+Promise.allSettled([promise1,promise2,promise3]) //espera a q todas esten resueltas 
+//a diferencia de promise.all, ya que se cierra cuando se rechacen algunas de las promesas
+//promise.allSettled va a correr todas las promesas sin importar su respuesta
+.then(response =>console.log(response))
+/*[
+  { status: 'rejected', reason: 'reject' },
+  { status: 'fulfilled', value: 'resolve' },
+  { status: 'fulfilled', value: 'resolve1' }
+]
+ */
+
+// ---------------------- Global this -----------
+console.log(globalThis); //tenemos acceso desde Nodejs, para acceder al recurso
+
+//---------------------- Operador null
+
+const fooo='asd' ?? 'default string';
+console.log(fooo);
